@@ -1,0 +1,50 @@
+publiccodeYmlVersion: "0.2"
+
+# For information on how to fill out this example, please visit 
+# https://docs.italia.it/italia/developers-italia/publiccodeyml-en/en/master/index.html
+
+name: ProjectTemplate
+url: "https://github.com/CodeForBaltimore/ProjectTemplate.git"
+landingUrl: "https://github.com/CodeForBaltimore/ProjectTemplate"
+softwareVersion: "1.0.0"    # Optional
+releaseDate: "2017-04-15"
+platforms:
+  - web
+
+categories:
+  - example
+
+developmentStatus: development
+
+softwareType: "standalone/web"
+
+description:
+  en:
+    localisedName: projecttemplate   # Optional
+    genericName: A Project Template
+    shortDescription: >
+          A rather short description which
+          is probably useless
+
+    longDescription: >
+          Very long description of this software, also split
+          on multiple rows. You should note what the software
+          is and why one should need it. We can potentially
+          have many pages of text here.
+
+    features:
+       - Just one feature
+
+legal:
+  license: Apache-2.0
+
+maintenance:
+  type: "community"
+
+  contacts:
+    - name: Your Name
+
+localisation:
+  localisationReady: yes
+  availableLanguages:
+    - en
