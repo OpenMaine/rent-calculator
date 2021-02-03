@@ -15,7 +15,7 @@ A cost calculator to help landlords comply with Portland's new rent stabilizatio
 # Documentation
 ... is a good idea.  The `docs` folder has a template [Tech Spec](/docs/Tech_Spec.md) and [Best Practices](/docs/Best_Practices.md) document, ready to be filled in.  Other documents and relevant information that has no other place can also live in the `docs` folder.  Update this section as docs are added.  
 
-For now, we've got two key Google Docs holding the [outline](https://docs.google.com/document/d/1wpXm6teqLcRVh6RCAs_qegKrYIAwKbjhIrVJxF9b6Ok/edit) of the website (includes intro, how user will flow through, calculator, etc) and [acceptance criteria](https://docs.google.com/document/d/1DGgUzEAM7SYWrP37D5wZV_mwF6ZrgX5KWqtl1DobMfE/edit) to determine who can use the calculator.  
+For now, we've got Google Docs holding the working documents.  [Build Ideas](https://docs.google.com/document/d/1prJ4gxLw3Ho2bDGjl2n4QM4zw12SxCrFzu4mcTR3kV4/edit) is the primary draft.  There's also an earlier [outline](https://docs.google.com/document/d/1wpXm6teqLcRVh6RCAs_qegKrYIAwKbjhIrVJxF9b6Ok/edit), with source notes,  and the project's [acceptance criteria](https://docs.google.com/document/d/1DGgUzEAM7SYWrP37D5wZV_mwF6ZrgX5KWqtl1DobMfE/edit).
 
 
 
