@@ -88,8 +88,41 @@ textarea {
    ========================================================================== */
 
   body {
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: Helvetica, sans-serif;
     font-size: 16px;
+  }
+
+  header {
+    background: url('../img/Banner.png') #b3d4fc;
+  }
+
+  header .content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  header h1 {
+    text-align: center;
+    margin: 15px;
+  }
+
+  main .content-wrapper {
+    margin: 15px;
+  }
+
+  .calculator h2 {
+    background: #1a346f;
+    color: #fff;
+    text-align: center;
+  }
+
+  .js-box {
+    border: 2px solid #000;
+    display: flex;
+    justify-content: space-around;
+    vertical-align: center;
+    flex-flow: column wrap;
   }
 /* ==========================================================================
    Helper classes
@@ -179,7 +212,13 @@ textarea {
    Modify as content requires.
    ========================================================================== */
 
-@media only screen and (min-width: 35em) {
+@media only screen and (min-width: 768px) {
+  .js-box {
+    flex-flow: row wrap;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
   /* Style adjustments for viewports that meet the condition */
 }
 
