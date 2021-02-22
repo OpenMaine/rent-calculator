@@ -96,6 +96,8 @@ textarea {
     background: url('../img/Banner.png') #b3d4fc;
   }
 
+  /*header needs a gray layer over the image; should this happen in CSS, HTML, or by futzing with the .png before it even goes into the code? */
+
   header .content-wrapper {
     display: flex;
     justify-content: center;
@@ -105,10 +107,16 @@ textarea {
   header h1 {
     text-align: center;
     margin: 15px;
+    color: #fff;
+    text-shadow: 5px 5px 10px #000;
   }
 
   main .content-wrapper {
     margin: 15px;
+  }
+
+  .intro {
+    margin: 60px 0;
   }
 
   .calculator h2 {
@@ -120,9 +128,32 @@ textarea {
   .js-box {
     border: 2px solid #000;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     vertical-align: center;
     flex-flow: column wrap;
+    margin: 15px;
+  }
+
+  .js-box h4, .js-box p {
+    margin: 15px;
+  }
+
+  .help-text {
+    background-color: #e8f0f0;
+    font-style: italic;
+  }
+
+  footer .content-wrapper {
+    background-color: #b7b7b7;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-inline-start: 0;
   }
 /* ==========================================================================
    Helper classes
@@ -213,6 +244,11 @@ textarea {
    ========================================================================== */
 
 @media only screen and (min-width: 768px) {
+  main .content-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
   .js-box {
     flex-flow: row wrap;
   }
