@@ -1,4 +1,4 @@
-/*! HTML5 Boilerplate v8.0.0 | MIT License | https://html5boilerplate.com/ */
+x/*! HTML5 Boilerplate v8.0.0 | MIT License | https://html5boilerplate.com/ */
 
 /* main.css 2.1.0 | MIT License | https://github.com/h5bp/main.css#readme */
 /*
@@ -93,7 +93,7 @@ textarea {
   }
 
   header {
-    background: url('../img/Banner.png') #b3d4fc;
+    background: url('../img/banner.png') #b3d4fc;
   }
 
   /*header needs a gray layer over the image; should this happen in CSS, HTML, or by futzing with the .png before it even goes into the code? */
@@ -126,11 +126,10 @@ textarea {
   }
 
   .js-box {
-    border: 2px solid #000;
     display: flex;
     justify-content: center;
     vertical-align: center;
-    flex-flow: column wrap;
+    flex-flow: column;
     margin: 15px;
   }
 
@@ -143,17 +142,29 @@ textarea {
     font-style: italic;
   }
 
-  footer .content-wrapper {
+  footer {
     background-color: #b7b7b7;
     display: flex;
-    flex-flow: column wrap;
     justify-content: center;
     text-align: center;
   }
 
-  ul {
-    list-style-type: none;
-    padding-inline-start: 0;
+  footer .content-wrapper {
+    display: flex;
+    flex-flow: column wrap;
+  }
+
+  footer .social {
+    display: flex;
+    justify-content: center;
+    flex-flow: row;
+  }
+
+
+  footer a img {
+    height: 40px;
+    width: 40px;
+    padding: 15px;
   }
 /* ==========================================================================
    Helper classes
@@ -244,13 +255,35 @@ textarea {
    ========================================================================== */
 
 @media only screen and (min-width: 768px) {
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
   main .content-wrapper {
     max-width: 1100px;
-    margin: 0 auto;
   }
   
   .js-box {
     flex-flow: row wrap;
+  }
+
+  footer .content-wrapper {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  footer .page-author, .social, .contact {
+    margin: 0 20px;
+  }
+
+  footer a img {
+    height: 40px;
+    width: 40px;
+    padding: 15px;
   }
 }
 
