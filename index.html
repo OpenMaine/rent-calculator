@@ -34,36 +34,69 @@
   <main>
     <div class="content-wrapper">
       <div class="intro">
-        <p>In November 2020, Portland passed a new ordinance to limit increases in rent. The purpose of the ordinance is to promote community stability and protect tenants, while ensuring landlords receive a fair return on investment.</p>
+        <p>In November 2020, Portland passed a new ordinance to limit increases in rent. The purpose of the ordinance is to promote community stability and protect tenants, while ensuring landlords receive a fair return on investment. Full text of the ordinance can be found
+          <a href="https://www.portlandmaine.gov/DocumentCenter/View/1070/Chapter-6-Buildings-and-Building-Regulations---Revised-1132020" target="_BLANK">here</a>.</p>
 
-        <p>Landlords and tenants can use this tool to calculate their unit’s allowable rent increase.</p>
+        <p>This calculator is a resource to help tenants and landlords calculate the new allowed yearly rent increase for their unit(s).</p>
 
-        <p>Full text of the ordinance can be found
-          <a href="https://www.portlandmaine.gov/DocumentCenter/View/1070/Chapter-6-Buildings-and-Building-Regulations---Revised-1132020" target="_BLANK">here</a>. It is Article XII of Chapter 6, Buildings and Building Regulations, and covers sections 6-230 to 6-243. The City of Portland also has a list of
+        <div class="help-text">
+            <h3>Portland's Rent Stabilization Ordinance Applies To:</h3>
+            <p>Rental units in the City limits of Portland, that are NOT:</p>
+
+          <ul>
+            <li>
+              Rental Units owned, operated, or otherwise managed by municipal housing authorities;
+            </li>
+            <li>
+              Accommodations provided in a hospital, convent, church, religious facility, or extended care facility;
+            </li>
+            <li>
+              Dormitories owned and operated by an institution of higher education, or by Portland Public Schools;</li>
+            <li>
+              Rental Units within a building containing 2 to 4 dwelling units, one of which the Landlord currently occupies as their principal residence;
+            </li>
+            <li>
+              Accommodations where the amount of rent charged is either controlled or subsidized by a federal, state, or local governmental agency;</li>
+            <li>
+              Accessory dwelling units.
+            </li>
+          </ul>    
+            
+            <p>See the <a href="https://www.portlandmaine.gov/DocumentCenter/View/29758/Rent-Control-FAQs" target="_BLANK">FAQ</a>, or Section 6-231 of the <a href="https://www.portlandmaine.gov/DocumentCenter/View/1070/Chapter-6-Buildings-and-Building-Regulations---Revised-1132020" target="_BLANK">Ordinance</a> for term definitions and exemptions in more detail.</p>
+        </div>
+        <p>See also the City of Portland's list of
           <a href="https://www.portlandmaine.gov/DocumentCenter/View/29758/Rent-Control-FAQs" target="_BLANK">frequently asked questions (FAQ)</a> about the ordinance.</p>
+          
       </div>
       <div class="calculator">
         <h2>Calculator</h2>
-        <p>NOTE: The Rent Stabilization Ordinance covers only units within city limits, and do not meet certain exemptions, such as schools or small owner-occupied properties. See the <a href="https://www.portlandmaine.gov/DocumentCenter/View/29758/Rent-Control-FAQs" target="_BLANK">FAQ</a>, or Section 6-231, for a full list of exemptions.</p>
-        <div class="js-box">
-          <h4>Input Base Rent:</h4>
-          <p>INPUT BOX GOES HERE</p>
+        <h5>As of January, 2021, the current Allowable Increase Percentage (AIP) is 0.5%</h5>
+
+        <div class="help-text">
+          <p>Base Rent is the amount of monthly rent charged as of June 2020.</p>
+          <p>AIP is based on the change in the Consumer Price Index for Greater Boston Metro Area, as published by the <a href="https://www.bls.gov/regions/new-england/news-release/consumerpriceindex_boston.htm">United States Bureau of Labor Statistics</a>. The City of Portland's Housing Safety Office will publish an updated AIP each year on September 1, beginning September 1, 2021.</p>        
         </div>
-        <p class="help-text">*Base rent is the amount of rent charged as of June 2020. Base rent may also be adjusted in a few special circumstances, such as after a renovation. See Section 6-233 for more on those special cases.</p>
-        <p><span>The currently reported increase percentage is XX%.</span> The Housing Safety Office publishes the Allowable Increase Percentage (AIP) each year on September 1. There are a few situations where a Landlord may increase rent beyond the AIP, such as at the start of a new tenant, or after capital improvements to the unit. See Section 6-234 for full details.</p>
-        <p>CALCULATE MY INCREASE BUTTON GOES HERE</p>
-        <div class="js-box">
-          <h4>Possible increase:</h4>
-          <p>INCREASE OUTPUT BOX GOES HERE</p>
+
+         <form method="post" action="#">
+          <label for="currency-field">Enter Base Monthly Rent:</label>
+          <input type="text" name="currency-field" id="currency-field" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency" placeholder="$0,000.00">
+          <button>Calculate Increase</button>
+        </form>
+        
+
+        <h4>Increase Amount: <span id="incrOutput"></span></h4>
+                
+        <h4>New Total: <span id="newTotal"></span></span></h4>
+        
+        <div class="help-text">
+          <p>Increase Amount and New Total represent the calculated basic allowable increase after multiplying the inputed Base Rent amount by the current AIP.</p>
+          <p>New Total may not reflect the full yearly increase allowed. Factors such as Tax Rate Adjustment, new tenancy, Banked Rent, and Rent Board approved improvements to the unit may each have an impact on the allowed increase. See Section 6-234 of the <a href="https://www.portlandmaine.gov/DocumentCenter/View/1070/Chapter-6-Buildings-and-Building-Regulations---Revised-1132020" target="_BLANK">Ordinance</a> for full details.</p>
+          <p>However, the total allowed increase is capped at 10% per year; amounts above 10% may be "banked" for the following year. See Section 6-235 for more on banking rent increases.</p>
         </div>
-        <div class="js-box">
-          <h4>Possible New Total:</h4>
-          <p>NEW TOTAL OUTPUT BOX GOES HERE</p>
-        </div>
-        <p class="help-text">*The new total rent may be higher in some situations. Refer to section 6-234 for a complete list. However, any additional increases are capped at 10%.</p>
       </div>
+
       <div class="notice">
-        <h4>Landlords Are Required to Give Notice</h4>
+        <h4>Required Notice</h4>
         <p>Landlords are required to give at least 75 days advance notice of an increase in rent, by sending a signed document to the tenant.  The letter must include the date tenancy began, date of rent increase, and justifications for increase. See section 6.234-d.</p>
       </div>
       <div class="help-text">
@@ -75,7 +108,7 @@
   <footer>
     <div class="content-wrapper">
       <div class="page-author">
-        <p>This page is brought to you by volunteers from <a href="https://openmaine.org/">OpenMaine</a>.</p>
+        <p>This page is brought to you by volunteers from <a href="https://openmaine.org/">OpenMaine</a>, an official <a href="https://brigade.codeforamerica.org/">Code for America Brigade</a>.</p>
       </div>
       <div class="social">
         <p>
