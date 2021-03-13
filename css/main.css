@@ -118,6 +118,9 @@ textarea {
   p {
     padding: 0 5px;
   }
+  h4 {
+    margin: 10px 0px;
+  }
 
   a {
     font-weight: 600;
@@ -141,7 +144,7 @@ textarea {
   }
 
   form {
-    padding-left: 20px;
+    align-self: center;
     margin-top: 20px;
   }
 
@@ -151,18 +154,23 @@ textarea {
     color:#fff;
     background: #1a346f;
     padding: 4px 20px;
-    margin: 25px 10px;
+    margin: 15px 10px;
   }
 
   input {
+    width: 5rem;
+    font-size: 1.4rem;
     align-self: center;
-    margin-bottom: 20px;
+    padding: 3px 7px;
+    margin: 0 2px;
   }
-
+  input::-webkit-inner-spin-button, input::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+  }
 
   .intro {
     padding-bottom: 20px;
-    margin: 55px 0 40px 0;
+    margin: 30px 0 40px 0;
     border-bottom: .5px solid #1a346f;
   }
 
@@ -174,29 +182,60 @@ textarea {
       list-style-type: upper-alpha;
   }
 
+  .intro .help-text {
+    margin-top: 20px;
+  }
+
   .intro .help-text h3 {
     text-align: center;
     padding: 0 10%;
+    margin: 10px 0px;
   }
 
-  .calculator {
+  .calculator-section {
     display: flex;
     justify-content: center;
     vertical-align: center;
     flex-flow: column;
     margin: 15px;
   }
-  .calculator h2 {
+  .calculator-section h2 {
     background: #1a346f;
     color: #fff;
     text-align: center;
-    margin-top: 0;
+    margin: 0px 0px 5px 0px;
   }
 
-  .calculator h5 {
-    font-size: .9rem;
+  .calculator-section h5 {
+    font-size: .95rem;
+    line-height: 1.15;
     text-align: center;
     margin: 10px;
+  }
+
+  .calculator {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .calculator h3 {
+    margin: 15px 0px 10px 0px;
+  }
+
+  .calculator h4 {
+    margin: 10px 0px;
+  }
+
+  .calculator label {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .calculator .output {
+    width: 90%;
   }
   
 
@@ -205,7 +244,7 @@ textarea {
     font-size: .9rem;
     font-style: italic;
     line-height: 1.3;
-    padding: 15px;
+    padding: 10px;
   }
   .help-text h3 {
     color:#1a346f;
@@ -215,11 +254,23 @@ textarea {
     font-size: .95rem;
   }
 
+  .help-text .indent {
+    margin-left: 20px;
+  }
+
+  .notice {
+    text-align: center;
+  }
+  .notice p {
+    margin-top: 0px;
+  }
+
   footer {
     background-color: #b7b7b7;
     display: flex;
     justify-content: center;
     text-align: center;
+    padding: 10px 0px;
   }
 
   footer .content-wrapper {
@@ -231,6 +282,10 @@ textarea {
     display: flex;
     justify-content: center;
     flex-flow: row;
+  }
+
+  footer p {
+    margin: 0;
   }
 
 
