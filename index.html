@@ -41,7 +41,7 @@
 
         <div class="help-text">
             <h3>Portland's Rent Stabilization Ordinance Applies To:</h3>
-            <p>Rental units in the City limits of Portland, that are NOT:</p>
+            <p class="indent">Rental units in the City limits of Portland, that are NOT:</p>
 
           <ul>
             <li>
@@ -62,31 +62,34 @@
             </li>
           </ul>    
             
-            <p>See the <a href="https://www.portlandmaine.gov/DocumentCenter/View/29758/Rent-Control-FAQs" target="_BLANK">FAQ</a>, or Section 6-231 of the <a href="https://www.portlandmaine.gov/DocumentCenter/View/1070/Chapter-6-Buildings-and-Building-Regulations---Revised-1132020" target="_BLANK">Ordinance</a> for term definitions and exemptions in more detail.</p>
+            <p class="indent">See the <a href="https://www.portlandmaine.gov/DocumentCenter/View/29758/Rent-Control-FAQs" target="_BLANK">FAQ</a>, or Section 6-231 of the <a href="https://www.portlandmaine.gov/DocumentCenter/View/1070/Chapter-6-Buildings-and-Building-Regulations---Revised-1132020" target="_BLANK">Ordinance</a> for term definitions and exemptions in more detail.</p>
         </div>
         <p>See also the City of Portland's list of
           <a href="https://www.portlandmaine.gov/DocumentCenter/View/29758/Rent-Control-FAQs" target="_BLANK">frequently asked questions (FAQ)</a> about the ordinance.</p>
           
       </div>
-      <div class="calculator">
+      <div class="calculator-section">
         <h2>Calculator</h2>
-        <h5>As of January, 2021, the current Allowable Increase Percentage (AIP) is 0.5%</h5>
+        <h5>As of January, 2021, <br> the current Allowable Increase Percentage (AIP) is 0.5%</h5>
 
         <div class="help-text">
           <p>Base Rent is the amount of monthly rent charged as of June 2020.</p>
           <p>AIP is based on the change in the Consumer Price Index for Greater Boston Metro Area, as published by the <a href="https://www.bls.gov/regions/new-england/news-release/consumerpriceindex_boston.htm">United States Bureau of Labor Statistics</a>. The City of Portland's Housing Safety Office will publish an updated AIP each year on September 1, beginning September 1, 2021.</p>        
         </div>
 
-         <form method="post" action="#">
-          <label for="currency-field">Enter Base Monthly Rent:</label>
-          <input type="text" name="currency-field" id="currency-field" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency" placeholder="$0,000.00">
+        <div class = "calculator">
+          <h3>Enter Base Monthly Rent:</h3>
+          <div>
+            <label for="currency-field">$</label>
+            <input type="number" name="currency-field" id="base-rent-input" placeholder="0,000">
+          </div>
           <button>Calculate Increase</button>
-        </form>
-        
-
-        <h4>Increase Amount: <span id="incrOutput"></span></h4>
+          <div class="output">
+            <h4>Increase Amount: <span id="increaseOutput"></span></h4>
                 
-        <h4>New Total: <span id="newTotal"></span></span></h4>
+            <h4>New Total: <span id="newTotal"></span></span></h4>
+          </div>
+        </div>
         
         <div class="help-text">
           <p>Increase Amount and New Total represent the calculated basic allowable increase after multiplying the inputed Base Rent amount by the current AIP.</p>
@@ -96,8 +99,8 @@
       </div>
 
       <div class="notice">
-        <h4>Required Notice</h4>
-        <p>Landlords are required to give at least 75 days advance notice of an increase in rent, by sending a signed document to the tenant.  The letter must include the date tenancy began, date of rent increase, and justifications for increase. See section 6.234-d.</p>
+        <h4>Required Notice:</h4>
+        <p>Landlords are required to give at least 75 days advance notice of an increase in rent, by sending a signed document to the tenant.  The letter must include the date tenancy began, date of rent increase, and justifications for increase. <br>(See section 6.234-d)</p>
       </div>
       <div class="help-text">
         <p>***Legal Disclaimer Placeholder***</p>
