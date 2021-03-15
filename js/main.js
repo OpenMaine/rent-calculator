@@ -10,8 +10,8 @@ function calculateAIP(){
     const increaseAmount = baseRent * AIP;
     const newTotal = baseRent + increaseAmount;
 
-    document.querySelector('#increaseOutput').innerHTML = `$${increaseAmount.toFixed(2)}`;
-    document.querySelector('#newTotal').innerHTML = `$${newTotal.toFixed(2)}`;
+    document.querySelector('#increaseOutput').innerHTML = ` $${increaseAmount.toFixed(2)}`;
+    document.querySelector('#newTotal').innerHTML = ` $${newTotal.toFixed(2)}`;
 }
 
 // Submit input using Enter key
