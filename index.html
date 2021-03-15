@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>Portland Rent Increase Calculator</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -18,6 +18,8 @@
 
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
 
   <meta name="theme-color" content="#fafafa">
 </head>
@@ -40,7 +42,7 @@
         <p>This calculator is a resource to help tenants and landlords calculate the new allowed yearly rent increase for their unit(s).</p>
 
         <div class="help-text">
-            <h3>Portland's Rent Stabilization Ordinance Applies To:</h3>
+            <h3>Portland's Rent Stabilization Ordinance Applies To</h3>
             <p class="indent">Rental units in the City limits of Portland, that are NOT:</p>
 
           <ul>
@@ -69,12 +71,12 @@
           
       </div>
       <div class="calculator-section">
-        <h2>Calculator</h2>
+        <h2>Calculator:</h2>
         <h5>As of January, 2021, <br> the current Allowable Increase Percentage (AIP) is 0.5%</h5>
 
         <div class="help-text">
-          <p>Base Rent is the amount of monthly rent charged as of June 2020.</p>
-          <p>AIP is based on the change in the Consumer Price Index for Greater Boston Metro Area, as published by the <a href="https://www.bls.gov/regions/new-england/news-release/consumerpriceindex_boston.htm">United States Bureau of Labor Statistics</a>. The City of Portland's Housing Safety Office will publish an updated AIP each year on September 1, beginning September 1, 2021.</p>        
+          <p>* Base Rent is the amount of monthly rent charged as of June 2020.</p>
+          <p>* AIP is based on the change in the Consumer Price Index for Greater Boston Metro Area, as published by the <a href="https://www.bls.gov/regions/new-england/news-release/consumerpriceindex_boston.htm">United States Bureau of Labor Statistics</a>. The City of Portland's Housing Safety Office will publish an updated AIP each year on September 1, beginning September 1, 2021.</p>        
         </div>
 
         <div class = "calculator">
@@ -84,17 +86,21 @@
             <input type="number" name="currency-field" id="base-rent-input" placeholder="0,000">
           </div>
           <button>Calculate Increase</button>
+          
           <div class="output">
-            <h4>Increase Amount: <span id="increaseOutput"></span></h4>
-                
-            <h4>New Total: <span id="newTotal"></span></span></h4>
+            <div>
+              <h4>Increase Amount:<span id="increaseOutput"></span></h4>
+            </div>
+            <div>
+              <h4>New Total: <span id="newTotal"></span></h4>
+            </div>
           </div>
         </div>
         
         <div class="help-text">
-          <p>Increase Amount and New Total represent the calculated basic allowable increase after multiplying the inputed Base Rent amount by the current AIP.</p>
-          <p>New Total may not reflect the full yearly increase allowed. Factors such as Tax Rate Adjustment, new tenancy, Banked Rent, and Rent Board approved improvements to the unit may each have an impact on the allowed increase. See Section 6-234 of the <a href="https://www.portlandmaine.gov/DocumentCenter/View/1070/Chapter-6-Buildings-and-Building-Regulations---Revised-1132020" target="_BLANK">Ordinance</a> for full details.</p>
-          <p>However, the total allowed increase is capped at 10% per year; amounts above 10% may be "banked" for the following year. See Section 6-235 for more on banking rent increases.</p>
+          <p>* Increase Amount and New Total represent the calculated basic allowable increase after multiplying the inputed Base Rent amount by the current AIP.</p>
+          <p>* New Total may not reflect the full yearly increase allowed. Factors such as Tax Rate Adjustment, new tenancy, Banked Rent, and Rent Board approved improvements to the unit may each have an impact on the allowed increase. See Section 6-234 of the <a href="https://www.portlandmaine.gov/DocumentCenter/View/1070/Chapter-6-Buildings-and-Building-Regulations---Revised-1132020" target="_BLANK">Ordinance</a> for full details.</p>
+          <p>* The combined total of allowed increase(s) is capped at 10% per year; amounts above 10% may be "banked" for the following year. See Section 6-235 for more on banking rent increases.</p>
         </div>
       </div>
 
