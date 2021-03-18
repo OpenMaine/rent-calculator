@@ -94,29 +94,33 @@ textarea {
     line-height: 1.6;
   }
 
+/* header image OpMEskyline.png is original volunteer artwork created for OpenMaine */
   header {
-    background: linear-gradient(rgba(26, 52, 113, 0.5), rgba(26, 52, 113, 0.5)), url('../img/banner.png') #b3d4fc;
+    background-attachment: scroll, scroll, scroll, fixed;
+    background-image: url('../img/OpMEskyline.png');
+    background-position: bottom left, bottom right, top left, top center;
+    background-repeat: no-repeat, no-repeat, repeat, no-repeat;
+		background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 3% 0px;
+    padding: 3% 0px 2% 0px;
   }
 
-  header .content-wrapper {
-    width: 80%;
-    align-self: center;
-  }
+      header .content-wrapper {
+        width: 80%;
+        align-self: center;
+      }
   
-
-  header h1 {
-    text-align: center;
-    font-size: 1.8rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin: 0;
-    color: #fff;
-    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-  }
+      header h1 {
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1.2;
+        margin: 1.7rem 0 0 0;
+        color: #fff;
+        text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+      }
 
   main .content-wrapper {
     margin: 15px;
@@ -126,21 +130,19 @@ textarea {
     padding: 0 5px;
   }
 
-  h4 {
-    margin: 10px 0px;
-  }
-
   a {
     font-weight: 600;
     text-decoration: none;
     color: #1a346f;
   }
-  a:hover {
-    font-size: 1.1rem;
-  }
-  a:visited {
-    color: #4f70be
-  }
+
+      a:hover {
+        font-size: 1.1rem;
+      }
+
+      a:visited {
+        color: #4f70be
+      }
 
   ul {
     padding-left: 10px;
@@ -185,9 +187,114 @@ textarea {
     padding: 7px 7px;
     margin: 0 2px;
   }
-  input::-webkit-inner-spin-button, input::-webkit-outer-spin-button{
-    -webkit-appearance: none;
+
+      input::-webkit-inner-spin-button, input::-webkit-outer-spin-button{
+        -webkit-appearance: none;
+      }
+
+  .intro {
+    padding-bottom: 20px;
+    margin: 30px 0 40px 0;
+    border-bottom: .5px solid #1a346f;
   }
+
+      .intro ul {
+        padding-left: 40px;
+      }
+
+      .intro li{
+          list-style-type: upper-alpha;
+      }
+
+      .intro .help-text {
+        margin-top: 20px;
+      }
+
+          .intro .help-text h3 {
+            text-align: center;
+            padding: 0 10%;
+            margin: 10px 0px;
+          }
+  
+  .help-text {
+    background-color: #e8f0f0;
+    border-radius: 7px;
+    font-size: .9rem;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.3;
+    padding: 10px;
+  }
+
+      .help-text h3 {
+        color:#1a346f;
+        font-style: normal;
+        font-weight: 700;
+      }
+
+      .help-text h4 {
+        margin: 10px 0px;
+      }    
+
+      .help-text a:hover {
+        font-size: .95rem;
+      }
+
+      .help-text .indent {
+        margin-left: 20px;
+      }
+
+      .help-text.notice {
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.6;
+      }
+    
+
+  .calculator-section {
+    display: flex;
+    justify-content: center;
+    vertical-align: center;
+    flex-flow: column;
+    margin: 15px 0px;
+  }
+      .calculator-section h2 {
+        font-weight: 700;
+        background: #1a346f;
+        color: #fff;
+        text-align: center;
+        margin: 0px 0px 5px 0px;
+      }
+
+      .calculator-section h5 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        line-height: 1.15;
+        text-align: center;
+        margin: 10px;
+      }
+
+  .calculator {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: left;
+    align-items: center;
+  }
+
+      .calculator h3 {
+        margin: 15px 0px 10px 0px;
+      }
+
+      .calculator h4 {
+        margin: 10px 0px;
+      }
+
+      .calculator label {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
   #increaseOutput, #newTotal {
     width: 5rem;
     font-size: 1.5rem;
@@ -201,74 +308,6 @@ textarea {
     margin: 0px 10% 0px 10px;
   }
 
-  .intro {
-    padding-bottom: 20px;
-    margin: 30px 0 40px 0;
-    border-bottom: .5px solid #1a346f;
-  }
-
-  .intro ul {
-    padding-left: 40px;
-  }
-
-  .intro li{
-      list-style-type: upper-alpha;
-  }
-
-  .intro .help-text {
-    margin-top: 20px;
-  }
-
-  .intro .help-text h3 {
-    text-align: center;
-    padding: 0 10%;
-    margin: 10px 0px;
-  }
-
-  .calculator-section {
-    display: flex;
-    justify-content: center;
-    vertical-align: center;
-    flex-flow: column;
-    margin: 15px 0px;
-  }
-  .calculator-section h2 {
-    font-weight: 700;
-    background: #1a346f;
-    color: #fff;
-    text-align: center;
-    margin: 0px 0px 5px 0px;
-  }
-
-  .calculator-section h5 {
-    font-size: .95rem;
-    font-weight: 600;
-    line-height: 1.15;
-    text-align: center;
-    margin: 10px;
-  }
-
-  .calculator {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    justify-content: left;
-    align-items: center;
-  }
-
-  .calculator h3 {
-    margin: 15px 0px 10px 0px;
-  }
-
-  .calculator h4 {
-    margin: 10px 0px;
-  }
-
-  .calculator label {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-
   .output {
     width: 100%;
     display:flex;
@@ -277,41 +316,6 @@ textarea {
     padding-left: 10%;
     margin: 10px 0px;
   }
-  .output div {
-    margin-top: 0px;
-  }
-  
-
-  .help-text {
-    background-color: #e8f0f0;
-    font-size: 1rem;
-    font-weight: 400;
-    font-style: italic;
-    line-height: 1.3;
-    padding: 10px;
-    margin-top: 30px;
-  }
-  .help-text h3 {
-    color:#1a346f;
-    font-style: normal;
-    font-weight: 700;
-  }
-  .help-text a:hover {
-    font-size: .95rem;
-  }
-
-  .help-text .indent {
-    margin-left: 20px;
-  }
-  .notice {
-    background-color: #e8f0f0;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.6;
-    padding: 10px;
-    margin-top: 30px;
-  }
 
   footer {
     background-color: #b7b7b7;
@@ -319,29 +323,30 @@ textarea {
     justify-content: center;
     text-align: center;
     padding: 10px 0px;
+    margin-top: 60px;
   }
 
-  footer .content-wrapper {
-    display: flex;
-    flex-flow: column wrap;
-  }
+      footer .content-wrapper {
+        display: flex;
+        flex-flow: column wrap;
+      }
 
-  footer .social {
-    display: flex;
-    justify-content: center;
-    flex-flow: row;
-  }
+      footer .social {
+        display: flex;
+        justify-content: center;
+        flex-flow: row;
+      }
 
-  footer p {
-    margin: 0;
-  }
+      footer p {
+        margin: 0;
+      }
 
+      footer a img {
+        height: 40px;
+        width: 40px;
+        padding: 15px;
+      }
 
-  footer a img {
-    height: 40px;
-    width: 40px;
-    padding: 15px;
-  }
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -437,10 +442,9 @@ textarea {
     align-items: center;
   }
   
-  main .content-wrapper {
-    max-width: 70%;
-  }
-
+      main .content-wrapper {
+        max-width: 70%;
+      }
 
   footer .content-wrapper {
     display: flex;
@@ -449,15 +453,15 @@ textarea {
     align-items: center;
   }
 
-  footer .page-author, .social, .contact {
-    margin: 0 20px;
-  }
+      footer .page-author, .social, .contact {
+        margin: 0 20px;
+      }
 
-  footer a img {
-    height: 40px;
-    width: 40px;
-    padding: 15px;
-  }
+      footer a img {
+        height: 40px;
+        width: 40px;
+        padding: 15px;
+      }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -465,23 +469,44 @@ textarea {
   header h1 {
     font-size: 3.8rem;
   }
+
   main {
     font-size: 1.3rem;
     line-height: 1.2;
   }
+
+  a:hover {
+    font-size: 1.35rem;
+  }
+
+  header h1 {
+    padding: 0 5%;
+  }
+
   .help-text {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 500;
     line-height: 1.3;
     padding: 30px 50px 30px 60px;
   }
+
+      .help-text a:hover {
+        font-size: 1.3rem;
+      }
+
+      .help-text.notice {
+        font-size: 1.3rem;
+        padding: 30px 50px 30px 60px;
+      }
+
   .calculator-section h2 {
     font-size: 2.3rem;
     padding: 5px 0px;
   }
 
   .calculator-section h5 {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    margin: 30px 0px 25px 0px;
   }
   
   .calculator {
@@ -491,6 +516,7 @@ textarea {
     justify-content: space-evenly;
     margin: 30px 0px;
   }
+
   .output {
     width: 100%;
     display:flex;
@@ -499,20 +525,28 @@ textarea {
     padding-left: 60%;
     margin-top: 40px;
   }
-  .output div {
-    margin-top: 20px;
+
+      .output div {
+        margin-top: 20px;
+      }
+
+  footer {
+    height: 130px;
+    padding-left: 3%;
+    padding-right: 3%;
   }
 
-.notice {
-  font-size: 1.3rem;
-  padding: 30px 50px 30px 60px;
-}
+      footer p {
+        font-size: 1.2rem;
+        padding: 0px 20px;
+      }
 
-@media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 1.25dppx),
-  (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */
+
+  @media print,
+    (-webkit-min-device-pixel-ratio: 1.25),
+    (min-resolution: 1.25dppx),
+    (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
 }
 
 /* ==========================================================================
