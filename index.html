@@ -39,68 +39,121 @@
 
         <p>This calculator is a resource to help tenants and landlords calculate the new allowed yearly rent increase for their unit(s).</p>
 
-        <div class="help-text">
-            <h3>Is my apartment or unit covered by rent control?</h3>
+        <section class="formWizard">
+          <!-- circles indicating form steps -->
+          <div class="circleDiv">
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+          </div>
 
-          <ul>
-            <li>  Does your building have more than four units?</li>
-            <li>  (If no to above) Does your landlord live in the building?</li>
-            <li>  Do you live in a dorm or other school housing, or in a building owned by the Portland Public School system?</li>
-            <li>  Is your unit owned or operated by a municipal housing authority (such as Portland Housing Authority)?</li>
-            <li>  Is your unit funded or controlled by a government agency, such as Section 8 housing? (Note: this excludes Section 8 vouchers.  If you are using a Section 8 voucher, answer "No".)</li>
-            <li>Do you live in an accessory dwelling?</li>
-            <li>  Do you live in a church, hospital convent, religious facility, or extended care facility?</li><!--hospital convent?-->
-          </ul>    
+          <!-- tabs cycle each form step  -->
+          <div class="tab">
+            <div>
+              <p><label for="dropdown">I am a:</label>
+                <select id="userSelect" name="dropdown" oninput="this.className = ''">
+                 <option value="tenant">Tenant</option>
+                 <option value="landlord">Landlord</option>
+               </select></p>
+            </div>
             
-            <p class="indent">See the <a href="https://www.portlandmaine.gov/DocumentCenter/View/29758/Rent-Control-FAQs" target="_BLANK">FAQ</a>, or Section 6-231 of the <a href="https://www.portlandmaine.gov/DocumentCenter/View/1070/Chapter-6-Buildings-and-Building-Regulations---Revised-1132020" target="_BLANK">Ordinance</a> for term definitions and exemptions in more detail.</p>
-        </div>
-        <p>See also the City of Portland's list of
-          <a href="https://www.portlandmaine.gov/DocumentCenter/View/29758/Rent-Control-FAQs" target="_BLANK">frequently asked questions (FAQ)</a> about the ordinance.</p>
-          
+            <div class="formButtons">
+              <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+            </div>
+
+          </div>
+
+          <div class="tab">
+            <div id="coverageTenant">
+              <h3>Is my apartment or unit covered by rent control?</h3>
+              <span id="displayUser"></span>
+              <ul>
+                <li>  Does your building have more than four units?</li>
+                <li>  (If no to above) Does your landlord live in the building?</li>
+                <li>  Do you live in a dorm or other school housing, or in a building owned by the Portland Public School system?</li>
+                <li>  Is your unit owned or operated by a municipal housing authority (such as Portland Housing Authority)?</li>
+                <li>  Is your unit funded or controlled by a government agency, such as Section 8 housing? (Note: this excludes Section 8 vouchers.  If you are using a Section 8 voucher, answer "No".)</li>
+                <li>Do you live in an accessory dwelling?</li>
+                <li>  Do you live in a church, hospital convent, religious facility, or extended care facility?</li><!--hospital convent?-->
+              </ul>     
+              <p class="indent">See the <a href="https://www.portlandmaine.gov/DocumentCenter/View/29758/Rent-Control-FAQs" target="_BLANK">FAQ</a>, or Section 6-231 of the <a href="https://www.portlandmaine.gov/DocumentCenter/View/1070/Chapter-6-Buildings-and-Building-Regulations---Revised-1132020" target="_BLANK">Ordinance</a> for term definitions and exemptions in more detail.</p>
+            </div>
+            <div class="formButtons">
+              <button type="button" id="startOver" onclick="nextPrev(-1)">Start Over</button>
+              <button type="button" id="yesButton" onclick="notElig()">Yes</button>
+              <button type="button" id="noButton" onclick="showCalculator()">No</button>
+            </div>
+
+          </div>
+
+          <div class= "tab">
+
+            <div id="notElig">
+              <p>Sorry, the rent control ordinance doesn't apply (more help text)</p>
+              <div class="formButtons">
+                <button type="button" id="startOver" onclick="nextPrev(1)">Start Over</button>
+              </div>
+            </div>
+
+            <div id="calculator">
+
+              <div class="calculator-section">
+                <h2>Calculator:</h2>
+                <h5>As of January, 2021, the current Allowable Increase Percentage (AIP) is 0.5%</h5>
+        
+        
+                <div class="help-text">
+                  <p>* Base Rent is the amount of monthly rent charged as of June 2020.</p>
+                  <p>* AIP is based on the change in the Consumer Price Index for Greater Boston Metro Area, as published by the <a href="https://www.bls.gov/regions/new-england/news-release/consumerpriceindex_boston.htm" target="_BLANK">United States Bureau of Labor Statistics</a>. The City of Portland's Housing Safety Office will publish an updated AIP each year on September 1, beginning September 1, 2021.</p>        
+                </div>
+        
+                <div class = "calculator">
+                  <h3>Enter Your Base Monthly Rent:</h3>
+                  <div>
+                    <label for="currency-field">$</label>
+                    <input type="number" name="currency-field" id="base-rent-input" placeholder="0,000">
+                  </div>
+                  <button id="calculateButton">Calculate Increase</button>
+                  
+                  <div class="output">
+                    <div>
+                      <h4>Increase Amount:<span id="increaseOutput"></span></h4>
+                    </div>
+                    <div>
+                      <h4>New Total: <span id="newTotal"></span></h4>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="help-text">
+                  <p>* Increase Amount and New Total represent the calculated basic allowable increase after multiplying the inputed Base Rent amount by the current AIP.</p>
+                  <p>* New Total may not reflect the full yearly increase allowed. Factors such as Tax Rate Adjustment, new tenancy, Banked Rent, and Rent Board approved improvements to the unit may each have an impact on the allowed increase. See Section 6-234 of the <a href="https://www.portlandmaine.gov/DocumentCenter/View/1070/Chapter-6-Buildings-and-Building-Regulations---Revised-1132020" target="_BLANK">Ordinance</a> for full details.</p>
+                  <p>* The combined total of allowed increase(s) is capped at 10% per year; amounts above 10% may be "banked" for the following year. See Section 6-235 for more on banking rent increases.</p>
+                </div>
+              </div>
+
+              <div class="help-text notice">
+                <h4>Required Notice:</h4>
+                <p>Landlords are required to give at least 75 days advance notice of an increase in rent, by sending a signed document to the tenant.  The letter must include the date tenancy began, date of rent increase, and justifications for increase. <br>(See section 6.234-d)</p>
+              </div>
+
+
+              <div>
+                <button type="button" id="startOver" onclick="nextPrev(1)">Start Over</button>
+              </div>
+            </div>
+
+          </div>
+        </section>
       </div>
-      <div class="calculator-section">
-        <h2>Calculator:</h2>
-        <h5>As of January, 2021, the current Allowable Increase Percentage (AIP) is 0.5%</h5>
-
-
-        <div class="help-text">
-          <p>* Base Rent is the amount of monthly rent charged as of June 2020.</p>
-          <p>* AIP is based on the change in the Consumer Price Index for Greater Boston Metro Area, as published by the <a href="https://www.bls.gov/regions/new-england/news-release/consumerpriceindex_boston.htm" target="_BLANK">United States Bureau of Labor Statistics</a>. The City of Portland's Housing Safety Office will publish an updated AIP each year on September 1, beginning September 1, 2021.</p>        
-        </div>
-
-        <div class = "calculator">
-          <h3>Enter Your Base Monthly Rent:</h3>
-          <div>
-            <label for="currency-field">$</label>
-            <input type="number" name="currency-field" id="base-rent-input" placeholder="0,000">
-          </div>
-          <button>Calculate Increase</button>
-          
-          <div class="output">
-            <div>
-              <h4>Increase Amount:<span id="increaseOutput"></span></h4>
-            </div>
-            <div>
-              <h4>New Total: <span id="newTotal"></span></h4>
-            </div>
-          </div>
-        </div>
         
         <div class="help-text">
-          <p>* Increase Amount and New Total represent the calculated basic allowable increase after multiplying the inputed Base Rent amount by the current AIP.</p>
-          <p>* New Total may not reflect the full yearly increase allowed. Factors such as Tax Rate Adjustment, new tenancy, Banked Rent, and Rent Board approved improvements to the unit may each have an impact on the allowed increase. See Section 6-234 of the <a href="https://www.portlandmaine.gov/DocumentCenter/View/1070/Chapter-6-Buildings-and-Building-Regulations---Revised-1132020" target="_BLANK">Ordinance</a> for full details.</p>
-          <p>* The combined total of allowed increase(s) is capped at 10% per year; amounts above 10% may be "banked" for the following year. See Section 6-235 for more on banking rent increases.</p>
+          <p>***Legal Disclaimer Placeholder***</p>
+          <p>Some proper language should go in here about how we ain’t lawyers. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
         </div>
-      </div>
 
-      <div class="help-text notice">
-        <h4>Required Notice:</h4>
-        <p>Landlords are required to give at least 75 days advance notice of an increase in rent, by sending a signed document to the tenant.  The letter must include the date tenancy began, date of rent increase, and justifications for increase. <br>(See section 6.234-d)</p>
-      </div>
-      <div class="help-text">
-        <p>***Legal Disclaimer Placeholder***</p>
-        <p>Some proper language should go in here about how we ain’t lawyers. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-      </div>
+
+      
     </div>
   </main>
   
