@@ -1,3 +1,4 @@
+/*------------Calculator-----------------------*/
 //Allowable Increase Percentage (AIP), 0.5%, updated March 2021 using January 2021 figure from USBoLS.
 const AIP = 0.005
 
@@ -14,78 +15,96 @@ function calculateAIP(){
     document.querySelector('#newTotal').innerHTML = ` $${newTotal.toFixed(2)}`;
 }
 
-// Submit input using Enter key
+// submit input using Enter key
 function enterKey(event) {
     if (event.keyCode === 13) {
         calculateAIP()
       }
 }
 
-
-
-//------------Form Wizard------------------------------------
-let currentTab = 0; // Current tab is set to be the first tab (0)
-showTab(currentTab); // Display the current tab
-
-
+/*------------Form Wizard-----------------------*/
+let currentTab = 0;
+showTab(currentTab);
 
 function showTab(n) {
-  // This function will display the specified tab of the form ...
-  let userType = document.getElementById("userSelect").value
+  // display the specified tab of the form
+  let userType = document.getElementById("userSelection").value
   let x = document.getElementsByClassName("tab");
   x[n].style.display = "block";
-  // ... and fix the Previous/Next buttons:
   if (n != 0) {
     document.getElementById("nextBtn").style.display = "none"
   } else {
     document.getElementById("nextBtn").style.display = "inline"
   }
-  if (n == 1){
-    document.getElementById("displayUser").innerText = userType;
-    
-  }
-  // ... and run a function that displays the correct step indicator:
-  fixStepIndicator(n)
+  // run step indicator
+  stepIndicator(n)
 }
 
-function notElig() {
-  nextPrev(1)
-  document.getElementById("notElig").style.display = "inline";
-  document.getElementById("calculator").style.display = "none";
-}
-
-function showCalculator() {
-  nextPrev(1)
-  document.getElementById("calculator").style.display = "inline";
-  document.getElementById("notElig").style.display = "none";
-}
-
-
-function nextPrev(n) {
-  // This function will figure out which tab to display
+//---function for tab navigation---
+function navTab(n) {
   let x = document.getElementsByClassName("tab");
-  // Hide the current tab:
+  // hide current tab:
   x[currentTab].style.display = "none";
-  // Increase or decrease the current tab by 1:
+  // increase or decrease nav tabs:
   currentTab = currentTab + n;
-  // if you have reached the end of the form... :
+  // end of form, start over:
   if (currentTab >= x.length) {
     currentTab = 0
   }
-  // Otherwise, display the correct tab:
   showTab(currentTab);
 }
 
-
-function fixStepIndicator(n) {
-  // This function removes the "active" class of all steps...
-  var i, x = document.getElementsByClassName("step");
+function stepIndicator(n) {
+  let i, x = document.getElementsByClassName("step");
   for (i = 0; i < x.length; i++) {
     x[i].className = x[i].className.replace(" active", "");
   }
-  //... and adds the "active" class to the current step:
+  //---marks current step---
   x[n].className += " active";
 }
 
+//---inner div view depending on button selection---
+function coverage() {
+  let userSelection = document.getElementById("userSelection").value;
+  let tenantElig = document.getElementById("tenantElig");
+  let landlordElig = document.getElementById("landlordElig");
+  document.getElementById("displayUser").innerHTML = userSelection.toUpperCase()
 
+  userSelection === "tenant" ? tenantElig.style.display = "inline" : tenantElig.style.display = "none";
+  userSelection === "landlord" ? landlordElig.style.display = "inline" : landlordElig.style.display = "none";
+}
 
+function notElig() {
+  navTab(1)
+  document.getElementById("notElig").style.display = "inline";
+  document.getElementById("viewCalc").style.display = "none";
+}
+
+function showCalculator() {
+  navTab(1)
+  document.getElementById("viewCalc").style.display = "inline";
+  document.getElementById("notElig").style.display = "none";
+}
+
+/* -----------tool tips-------------- */
+const ttAIP = document.getElementById('ttAIP');
+  tippy('#aipTipBtn', {
+    content: ttAIP.innerHTML,
+    allowHTML: true,
+    interactive: true,
+  });
+
+tippy('#ttBaseRent', {
+  content: 'Monthly rent ("Base Rent") is the amount of monthly rent charged as of June 2020.',
+});
+
+tippy('#ttIncrAmt', {
+  content: 'This is your monthly rent amount multiplied by the current AIP.',
+});
+
+const ttNewRent = document.getElementById('ttNewRent');
+  tippy('#newRentBtn', {
+    content: ttNewRent.innerHTML,
+    allowHTML: true,
+    interactive: true,
+  });
