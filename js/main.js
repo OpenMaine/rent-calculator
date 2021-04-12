@@ -7,7 +7,7 @@ document.querySelector('input').addEventListener('keyup', enterKey);
 
 
 function calculateAIP(){
-    const baseRent = Number(document.querySelector('#base-rent-input').value)
+    const baseRent = Number(document.querySelector('#baseRentInput').value)
     const increaseAmount = baseRent * AIP;
     const newTotal = baseRent + increaseAmount;
 
@@ -87,6 +87,7 @@ function showCalculator() {
 }
 
 /* -----------tool tips-------------- */
+
 const ttAIP = document.getElementById('ttAIP');
   tippy('#aipTipBtn', {
     content: ttAIP.innerHTML,
@@ -100,6 +101,7 @@ tippy('#ttBaseRent', {
 
 tippy('#ttIncrAmt', {
   content: 'This is your monthly rent amount multiplied by the current AIP.',
+
 });
 
 const ttNewRent = document.getElementById('ttNewRent');

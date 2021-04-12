@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light-border.css"/>
   <script src="https://kit.fontawesome.com/2fde56496b.js" crossorigin="anonymous"></script>
 
   <meta name="theme-color" content="#fafafa">
@@ -70,13 +71,13 @@
               <div>
                 <h3>Do any of these apply to you?</h3>
                 <ul>
-                  <li>  Does your building have more than four units?</li>
-                  <li>  (If no to above) Does your landlord live in the building?</li>
-                  <li>  Do you live in a dorm or other school housing, or in a building owned by the Portland Public School system?</li>
-                  <li>  Is your unit owned or operated by a municipal housing authority (such as Portland Housing Authority)?</li>
-                  <li>  Is your unit funded or controlled by a government agency, such as Section 8 housing? (Note: this excludes Section 8 vouchers.  If you are using a Section 8 voucher, answer "No".)</li>
-                  <li>  Do you live in an accessory dwelling?</li>
-                  <li>  Do you live in a church, hospital convent, religious facility, or extended care facility?</li><!--hospital convent?-->
+                  <li>  Your building has more than four units</li>
+                  <li>  (<strong>If no to above</strong>) Your landlord lives in the building</li>
+                  <li>  You live in a dorm or other school housing, or in a building owned by the Portland Public School system</li>
+                  <li>  Your unit is owned or operated by a municipal housing authority (such as Portland Housing Authority)</li>
+                  <li>  Your unit is funded or controlled by a government agency, such as Section 8 housing (Note: this excludes Section 8 vouchers.  If you are using a Section 8 voucher, this item does not apply to you)</li>
+                  <li>  You live in an accessory dwelling</li>
+                  <li>  You live in a church, hospital convent, religious facility, or extended care facility</li><!--hospital convent?-->
                 </ul>     
               </div>
             </div>
@@ -85,9 +86,9 @@
                 <span id="displayUser"></span>
                 <h3>Do any of these apply to you?</h3>
                 <ul>
-                  <li>  Does your building have more than four units?</li>
-                  <li>  Does your building have four units or fewer, AND you live in the building as your primary residence?</li>
-                  <li>  Is your unit an accessory dwelling?</li>
+                  <li>  Your rental property has <strong>more than four</strong> units</li>
+                  <li>  Your rental property has <strong>four units or fewer</strong>, AND one of the units is your primary residence</li>
+                  <li>  Your rental property is an accessory dwelling</li>
                 </ul>   
               </div>
             </div>
@@ -129,17 +130,17 @@
                   
                   <div>
                     <label for="currency-field">$</label>
-                    <input type="number" name="currency-field" id="base-rent-input" placeholder="0,000">
+                    <input type="number" name="currency-field" id="baseRentInput" placeholder="0,000">
                   </div>
 
                   <button id="calculateButton">Calculate Increase</button>
                   
                   <div class="output">
                     <div>
-                      <h4>Increase Amount:<button class="tool-tip" id="ttIncrAmt"><i class="fas fa-question-circle fa-lg"></i></button> <span id="increaseOutput"></span></h4>
+                      <h4>Increase Amount<button class="tool-tip" id="ttIncrAmt"><i class="fas fa-question-circle fa-lg"></i></button> <span id="increaseOutput"></span></h4>
                     </div>
                     <div>
-                      <h4>New Rent:<button class="tool-tip" id="newRentBtn"><i class="fas fa-question-circle fa-lg"></i></button> <span id="newTotal"></span></h4>
+                      <h4>New Rent<button class="tool-tip" id="newRentBtn"><i class="fas fa-question-circle fa-lg"></i></button> <span id="newTotal"></span></h4>
                     </div>
                   </div>
 
@@ -151,17 +152,16 @@
                     <p>This total may not reflect all of the increases allowed. Factors such as Tax Rate Adjustment, new tenancy, Banked Rent, and Board approved improvements to the unit may impact the total increase allowed. See Section 6-234 of the <a href="https://www.portlandmaine.gov/DocumentCenter/View/1070/Chapter-6-Buildings-and-Building-Regulations---Revised-1132020" target="_BLANK">Ordinance</a> for more details.</p>
                     <p>However, after all additions the maximum allowed increase is capped at 10% per year (the total increase in one year would not be more than 10% of your current rent).</p>
                     </div>
+
+                    <div class="help-text notice">
+                      <p>Landlords are required to give at least 75 days advance notice of an increase in rent, by sending a signed document to the tenant.  The letter must include the date tenancy began, date of rent increase, and justifications for increase. <br>(See section 6.234-d)</p>
+                    </div>
+      
+      
+                    <div>
+                      <button type="button" id="startOver" onclick="navTab(1)">Start Over</button>
+                    </div>
                 
-              </div>
-
-              <div class="help-text notice">
-                <h4>Required Notice:</h4>
-                <p>Landlords are required to give at least 75 days advance notice of an increase in rent, by sending a signed document to the tenant.  The letter must include the date tenancy began, date of rent increase, and justifications for increase. <br>(See section 6.234-d)</p>
-              </div>
-
-
-              <div>
-                <button type="button" id="startOver" onclick="navTab(1)">Start Over</button>
               </div>
             </div>
 
@@ -171,7 +171,8 @@
         
         <div class="help-text">
           <p>***Legal Disclaimer Placeholder***</p>
-          <p>Some proper language should go in here about how we ain’t lawyers. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+          <p>Some proper language should go in here about how we ain’t lawyers. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          <p>Maybe this section also displays some text guiding users to additional help/resources.</p>
         </div>
      
     </div>
