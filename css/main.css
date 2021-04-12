@@ -200,6 +200,7 @@ textarea {
         font-size: 1rem;
         font-weight: 500;
         line-height: 1.6;
+        padding: 0;
       }
     
 /* ------------------styles for calculator--------------------- */
@@ -295,15 +296,14 @@ textarea {
           }
 
   #increaseOutput, #newTotal {
-    width: 5rem;
+    display: inline-block;
+    text-align: center;
+    min-width: 120px;
     font-size: 1.5rem;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    outline: none;
-    padding: 7px 18px;
+    border-bottom: .5px solid #b7b7b7;
+    /* box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); */
+    /* transition: all 0.3s ease 0s; */
+    /* padding: 7px 18px; */
     margin: 0px 0px 0px 10px;
   }
 
@@ -409,6 +409,7 @@ textarea {
 	      border-radius: .5em;
       }
 
+
   #notElig, #calculator {
     display: none;
   }
@@ -446,10 +447,9 @@ textarea {
         margin: 15px 10px;
       }
 
-      /* #startOver {
-        align-self:left;
-        background: lime;
-      } */
+      #startOver {
+        margin-right:auto;
+      }
 
 /* -----------tool tips-------------- */
 .tool-tip {
@@ -460,6 +460,20 @@ textarea {
   margin: 0 .2rem;
   box-shadow: none;
 }
+
+.tippy-box{
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+    .tippy-box a {
+      color: #C5D4EB;
+      font-weight: bold;
+    }
+
+    .tippy-box a:visited {
+      color: #a9a9a9;
+    }
 
 .fa-question-circle {
   color: #a9a9a9;
@@ -616,7 +630,6 @@ textarea {
 
       .help-text.notice {
         font-size: 1.3rem;
-        padding: 30px 50px 30px 60px;
       }
 
   .calculator-section {
