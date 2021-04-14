@@ -93,7 +93,7 @@
               </div>
             </div>
             <div class="form-buttons">
-              <button type="button" id="startOver" onclick="navTab(-1)">Start Over</button>
+              <button type="button" class="start-over" onclick="navTab(-1), startOver()">Start Over</button>
               <button type="button" id="yesButton" onclick="notElig()">Yes</button>
               <button type="button" id="noButton" onclick="showCalculator()">No</button>
             </div>
@@ -109,7 +109,7 @@
               </div>
               
               <div class="form-buttons">
-                <button type="button" id="startOver" onclick="navTab(1)">Start Over</button>
+                <button type="button" class="start-over" onclick="navTab(1), startOver()">Start Over</button>
               </div>
             </div>
 
@@ -126,13 +126,24 @@
                         <p>AIP is based on the change in the Consumer Price Index for Greater Boston Metro Area, as published by the <a href="https://www.bls.gov/regions/new-england/news-release/consumerpriceindex_boston.htm" target="_BLANK">United States Bureau of Labor Statistics</a>. The City of Portland's Housing Safety Office will publish an updated AIP each year on September 1, beginning September 1, 2021.</p>
                       </div>
 
-                  <h3>Your Monthly Rent:<button class="tool-tip" id="ttBaseRent"><i class="fas fa-question-circle fa-lg"></i></button></h3>
-                  
-                  <div>
-                    <label for="currency-field">$</label>
-                    <input type="number" name="currency-field" id="baseRentInput" placeholder="0,000">
-                  </div>
-
+                      <h3>Your Monthly Rent:<button class="tool-tip" id="ttBaseRent"><i class="fas fa-question-circle fa-lg"></i></button></h3>
+                    
+                      <div>
+                        <label for="currency-field">$</label>
+                        <input type="number" name="currency-field" class="currency-input" id="baseRentInput" placeholder="0,000">
+                      </div>
+                      
+                        <div class="adl-amts-container">
+                          <input type="checkbox" name="additional-amt" id="addAllowedAmt" onclick="reset()">
+                          <label for="addAllowedAmt">Do you have an additional allowed increase to add?</label>
+                          <div class="reveal-if-active">
+                            <div>
+                              <label for="currency-field">$</label>
+                              <input type="number" name="currency-field" class="currency-input" id="addAmtInput" placeholder="0,000">
+                            </div>
+                          </div>
+                        </div>
+                    
                   <button id="calculateButton">Calculate Increase</button>
                   
                   <div class="output">
@@ -149,17 +160,28 @@
                     <!--tool tip content  -->
                     <div id="ttNewRent" style="display: none;">
                     <p>"New Rent" is your current rent plus the increase amount calculated above.</p>
-                    <p>This total may not reflect all of the increases allowed. Factors such as Tax Rate Adjustment, new tenancy, Banked Rent, and Board approved improvements to the unit may impact the total increase allowed. See Section 6-234 of the <a href="https://www.portlandmaine.gov/DocumentCenter/View/1070/Chapter-6-Buildings-and-Building-Regulations---Revised-1132020" target="_BLANK">Ordinance</a> for more details.</p>
-                    <p>However, after all additions the maximum allowed increase is capped at 10% per year (the total increase in one year would not be more than 10% of your current rent).</p>
+                    <p>This total may not reflect all of the increases allowed. Factors such as Tax Rate Adjustment, new tenancy, Banked Rent, and Board approved improvements to the unit may impact the total increase allowed. See the City's <a href="https://www.portlandmaine.gov/DocumentCenter/View/29758/Rent-Control-FAQs" target="_BLANK">FAQ</a> or section 6-234 of the <a href="https://www.portlandmaine.gov/DocumentCenter/View/1070/Chapter-6-Buildings-and-Building-Regulations---Revised-1132020" target="_BLANK">Ordinance</a> for more details.</p>
                     </div>
 
                     <div class="help-text notice">
-                      <p>Landlords are required to give at least 75 days advance notice of an increase in rent, by sending a signed document to the tenant.  The letter must include the date tenancy began, date of rent increase, and justifications for increase. <br>(See section 6.234-d)</p>
+                      <p>Landlords are required to give at least 75 days advance notice of an increase in rent by sending a signed document to the tenant.  The letter must include the date tenancy began, date of rent increase, and justifications for increase. (See section 6.234-d of the <a href="https://www.portlandmaine.gov/DocumentCenter/View/1070/Chapter-6-Buildings-and-Building-Regulations---Revised-1132020" target="_BLANK">Ordinance</a> or the City of Portland's <a href="https://www.portlandmaine.gov/DocumentCenter/View/29758/Rent-Control-FAQs" target="_BLANK">FAQ)</a></p>
+                      
+                      <div id="maxIncrease">
+                        <p>A unit's rent may only be increased once in a 12 month period, and no increase may exceed 10%.  Based on the inputed Rent above:</p>
+                        <div>
+                          <p><strong>New Rent cannot be more than <span id="maxIncAmt"></span></strong><button class="tool-tip" id="maxIncBtn"><i class="fas fa-question-circle fa-lg"></i></button></p>
+                        </div>
+
+                        <!--tool tip content  -->
+                        <div id="ttMaxIncrease" style="display: none;">
+                        <p>Any allowed amount above the max increase may be "banked" and applied to the following year. See the <a href="https://www.portlandmaine.gov/DocumentCenter/View/29758/Rent-Control-FAQs" target="_BLANK">FAQ</a> and <a href="https://www.portlandmaine.gov/DocumentCenter/View/1070/Chapter-6-Buildings-and-Building-Regulations---Revised-1132020" target="_BLANK">Ordinance</a> for more info on Banked Rent.</p>
+                        </div>
+                      </div>
                     </div>
       
       
                     <div>
-                      <button type="button" id="startOver" onclick="navTab(1)">Start Over</button>
+                      <button type="button" class="start-over" onclick="navTab(1), startOver()">Start Over</button>
                     </div>
                 
               </div>
