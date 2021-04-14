@@ -119,6 +119,20 @@ function showCalculator() {
 
 /* -----------tool tips-------------- */
 
+const ttADwellT = document.getElementById('ttADwell-t');
+  tippy('#aDwellTipBtn-t', {
+    content: ttADwellT.innerHTML,
+    allowHTML: true,
+    interactive: true,
+  });
+  
+const ttADwellL = document.getElementById('ttADwell-l');
+  tippy('#aDwellTipBtn-l', {
+    content: ttADwellL.innerHTML,
+    allowHTML: true,
+    interactive: true,
+  });
+
 const ttAIP = document.getElementById('ttAIP');
   tippy('#aipTipBtn', {
     content: ttAIP.innerHTML,
