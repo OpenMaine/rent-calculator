@@ -148,3 +148,10 @@ const ttNewRent = document.getElementById('ttNewRent');
     allowHTML: true,
     interactive: true,
   });
+
+  const ttADU = document.getElementById('ttADU');
+  tippy('#aduTipBtn', {
+    content: ttAIP.innerHTML,
+    allowHTML: true,
+    interactive: true,
+  });
