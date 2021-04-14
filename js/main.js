@@ -2,17 +2,28 @@
 //Allowable Increase Percentage (AIP), 0.5%, updated March 2021 using January 2021 figure from USBoLS.
 const AIP = 0.005
 
-document.querySelector('#calculateButton').addEventListener('click', calculateAIP);
-document.querySelector('input').addEventListener('keyup', enterKey); 
+let rentInput = document.querySelector('#baseRentInput');
+rentInput.addEventListener('keyup', enterKey);
+rentInput.onfocus = () => rentInput.value = null;
 
+let addAmtInput = document.querySelector('#addAmtInput');
+// let addAmtCheckbox = document.querySelector('#addAllowedAmt');
+addAmtInput.addEventListener('keyup', enterKey);
+addAmtInput.onfocus = () => addAmtInput.value = null;
+
+document.querySelector('#calculateButton').addEventListener('click', calculateAIP);
 
 function calculateAIP(){
-    const baseRent = Number(document.querySelector('#baseRentInput').value)
-    const increaseAmount = baseRent * AIP;
+    const baseRent = Number(rentInput.value);
+    const addAmount = Number(addAmtInput.value);
+    const increaseAmount = (baseRent * AIP) + addAmount;
     const newTotal = baseRent + increaseAmount;
+    const maxNewRent = baseRent * 1.10;
 
     document.querySelector('#increaseOutput').innerHTML = ` $${increaseAmount.toFixed(2)}`;
     document.querySelector('#newTotal').innerHTML = ` $${newTotal.toFixed(2)}`;
+    document.querySelector('#maxIncAmt').innerHTML = `$${maxNewRent.toFixed(2)}`
+
 }
 
 // submit input using Enter key
@@ -22,13 +33,28 @@ function enterKey(event) {
       }
 }
 
+// reset fields when checkbox is unchecked
+function reset(){
+  addAmtInput.value = null;
+  document.querySelector('#increaseOutput').innerHTML = null;
+  document.querySelector('#newTotal').innerHTML = null;
+  document.querySelector('#maxIncAmt').innerHTML = null;
+}
+
+// reset all fields in wizard
+function startOver() {
+  document.getElementById("userSelection").selectedIndex = 0;
+  document.querySelector('#addAllowedAmt').checked = false;
+  rentInput.value = null;
+  reset()  
+}
+
 /*------------Form Wizard-----------------------*/
 let currentTab = 0;
 showTab(currentTab);
 
 function showTab(n) {
   // display the specified tab of the form
-  let userType = document.getElementById("userSelection").value
   let x = document.getElementsByClassName("tab");
   x[n].style.display = "block";
   if (n != 0) {
@@ -54,6 +80,8 @@ function navTab(n) {
   showTab(currentTab);
 }
 
+
+
 function stepIndicator(n) {
   let i, x = document.getElementsByClassName("step");
   for (i = 0; i < x.length; i++) {
@@ -64,11 +92,12 @@ function stepIndicator(n) {
 }
 
 //---inner div view depending on button selection---
+
 function coverage() {
   let userSelection = document.getElementById("userSelection").value;
   let tenantElig = document.getElementById("tenantElig");
   let landlordElig = document.getElementById("landlordElig");
-  document.getElementById("displayUser").innerHTML = userSelection.toUpperCase()
+  //document.getElementById("displayUser").innerHTML = userSelection.toUpperCase()
 
   userSelection === "tenant" ? tenantElig.style.display = "inline" : tenantElig.style.display = "none";
   userSelection === "landlord" ? landlordElig.style.display = "inline" : landlordElig.style.display = "none";
@@ -85,6 +114,8 @@ function showCalculator() {
   document.getElementById("viewCalc").style.display = "inline";
   document.getElementById("notElig").style.display = "none";
 }
+
+
 
 /* -----------tool tips-------------- */
 
@@ -107,6 +138,13 @@ tippy('#ttIncrAmt', {
 const ttNewRent = document.getElementById('ttNewRent');
   tippy('#newRentBtn', {
     content: ttNewRent.innerHTML,
+    allowHTML: true,
+    interactive: true,
+  });
+
+  const ttMaxIncrease = document.getElementById('ttMaxIncrease');
+  tippy('#maxIncBtn', {
+    content: ttMaxIncrease.innerHTML,
     allowHTML: true,
     interactive: true,
   });
