@@ -2,29 +2,72 @@
 //Allowable Increase Percentage (AIP), 0.5%, updated March 2021 using January 2021 figure from USBoLS.
 const AIP = 0.005
 
-let rentInput = document.querySelector('#baseRentInput');
-rentInput.addEventListener('keyup', enterKey);
-rentInput.onfocus = () => rentInput.value = null;
+const rentInput = document.querySelector('#baseRentInput');
+  rentInput.addEventListener('keyup', enterKey);
+  rentInput.onfocus = () => rentInput.value = null;
 
-let addAmtInput = document.querySelector('#addAmtInput');
-// let addAmtCheckbox = document.querySelector('#addAllowedAmt');
-addAmtInput.addEventListener('keyup', enterKey);
-addAmtInput.onfocus = () => addAmtInput.value = null;
 
-document.querySelector('#calculateButton').addEventListener('click', calculateAIP);
+const calculateButton = document.querySelector('#calculateButton');
+  calculateButton.addEventListener('click', calculateAIP);
 
+
+const increaseOutput = document.querySelector('#increaseOutput');
+const newTotalOutput = document.querySelector('#newTotal');
+const maxIncrease = document.querySelector('#maxIncAmt');
+const rentAmt = document.querySelector('#rentAmt');
+const tenPercent = document.querySelector('#tenPercent');
+let rentAndAIP = 0;
+
+//elements in landlord add'l amounts section
+const landAddAmtOutput = document.querySelector('#landAddAmtsTotal');
+  const taxRateInput = document.querySelector('#taxRateInput');
+  const bankedRentInput = document.querySelector('#bankedRentInput');
+  const boardAprInput = document.querySelector('#boardAprInput');
+
+
+//function to reveal the calculator output div
+const showOutputDiv = ()=> {
+  const outputDiv = document.querySelector('#outputDiv');
+  const userSelection = document.getElementById("userSelection").value;
+  outputDiv.style.display = "inline";
+
+      if (userSelection === "tenant"){
+        document.querySelector('#tenP1').style.display = "inline";
+        document.querySelector('#tenAddAmts').style.display = "inline";
+      } else if (userSelection === "landlord"){
+        document.querySelector('#landP1').style.display = "inline";
+        document.querySelector('#landAddAmts').style.display = "inline";
+      }
+}
+
+
+//function for calulation
 function calculateAIP(){
     const baseRent = Number(rentInput.value);
-    const addAmount = Number(addAmtInput.value);
-    const increaseAmount = (baseRent * AIP) + addAmount;
+    const increaseAmount = (baseRent * AIP) 
     const newTotal = baseRent + increaseAmount;
     const maxNewRent = baseRent * 1.10;
 
-    document.querySelector('#increaseOutput').innerHTML = ` $${increaseAmount.toFixed(2)}`;
-    document.querySelector('#newTotal').innerHTML = ` $${newTotal.toFixed(2)}`;
-    document.querySelector('#maxIncAmt').innerHTML = `$${maxNewRent.toFixed(2)}`
-
+    showOutputDiv()
+    increaseOutput.innerHTML = ` $${increaseAmount.toFixed(2)}`;
+    newTotalOutput.innerHTML = ` $${newTotal.toFixed(2)}`;
+    maxIncrease.innerHTML = `$${maxNewRent.toFixed(2)}`;
+    rentAmt.innerHTML = `$${baseRent}`;
+    tenPercent.innerHTML = `$${baseRent * 0.1}`;
+    rentAndAIP = newTotal.toFixed(2);
 }
+
+
+//function to add amounts in landlord calulator section
+function addToTotal(){
+      const taxAdst = Number(taxRateInput.value);
+      const bankedRent = Number(bankedRentInput.value);
+      const aprImprove = Number(boardAprInput.value);
+      const addlAmtTotal = Number(rentAndAIP) + taxAdst + bankedRent + aprImprove;
+      landAddAmtOutput.innerHTML = ` $${addlAmtTotal.toFixed(2)}`;
+}
+
+
 
 // submit input using Enter key
 function enterKey(event) {
@@ -33,21 +76,26 @@ function enterKey(event) {
       }
 }
 
-// reset fields when checkbox is unchecked
-function reset(){
-  addAmtInput.value = null;
-  document.querySelector('#increaseOutput').innerHTML = null;
-  document.querySelector('#newTotal').innerHTML = null;
-  document.querySelector('#maxIncAmt').innerHTML = null;
-}
 
 // reset all fields in wizard
 function startOver() {
   document.getElementById("userSelection").selectedIndex = 0;
-  document.querySelector('#addAllowedAmt').checked = false;
+  outputDiv.style.display = "none"
+  document.querySelector('#tenP1').style.display = null;
+  document.querySelector('#tenAddAmts').style.display = null;
+  document.querySelector('#landP1').style.display = null;
+  document.querySelector('#landAddAmts').style.display = null;
   rentInput.value = null;
-  reset()  
+  rentAmt.innerHTML = null;
+  increaseOutput.innerHTML = null;
+  newTotalOutput.innerHTML = null;
+  landAddAmtOutput.innerHTML = null;
+  taxRateInput.value = null;
+  bankedRentInput.value = null;
+  boardAprInput.value = null;
+  maxIncrease.innerHTML = null;
 }
+
 
 /*------------Form Wizard-----------------------*/
 let currentTab = 0;
@@ -66,6 +114,7 @@ function showTab(n) {
   stepIndicator(n)
 }
 
+
 //---function for tab navigation---
 function navTab(n) {
   let x = document.getElementsByClassName("tab");
@@ -81,7 +130,6 @@ function navTab(n) {
 }
 
 
-
 function stepIndicator(n) {
   let i, x = document.getElementsByClassName("step");
   for (i = 0; i < x.length; i++) {
@@ -91,23 +139,24 @@ function stepIndicator(n) {
   x[n].className += " active";
 }
 
-//---inner div view depending on button selection---
 
+//---inner div view depending on button selection---
 function coverage() {
-  let userSelection = document.getElementById("userSelection").value;
+  const userSelection = document.getElementById("userSelection").value;
   let tenantElig = document.getElementById("tenantElig");
   let landlordElig = document.getElementById("landlordElig");
-  //document.getElementById("displayUser").innerHTML = userSelection.toUpperCase()
 
   userSelection === "tenant" ? tenantElig.style.display = "inline" : tenantElig.style.display = "none";
   userSelection === "landlord" ? landlordElig.style.display = "inline" : landlordElig.style.display = "none";
 }
+
 
 function notElig() {
   navTab(1)
   document.getElementById("notElig").style.display = "inline";
   document.getElementById("viewCalc").style.display = "none";
 }
+
 
 function showCalculator() {
   navTab(1)
@@ -119,19 +168,19 @@ function showCalculator() {
 
 /* -----------tool tips-------------- */
 
-const ttADwellT = document.getElementById('ttADwell-t');
-  tippy('#aDwellTipBtn-t', {
-    content: ttADwellT.innerHTML,
-    allowHTML: true,
-    interactive: true,
-  });
+// const ttADwellT = document.getElementById('ttADwell-t');
+//   tippy('#aDwellTipBtn-t', {
+//     content: ttADwellT.innerHTML,
+//     allowHTML: true,
+//     interactive: true,
+//   });
   
-const ttADwellL = document.getElementById('ttADwell-l');
-  tippy('#aDwellTipBtn-l', {
-    content: ttADwellL.innerHTML,
-    allowHTML: true,
-    interactive: true,
-  });
+// const ttADwellL = document.getElementById('ttADwell-l');
+//   tippy('#aDwellTipBtn-l', {
+//     content: ttADwellL.innerHTML,
+//     allowHTML: true,
+//     interactive: true,
+//   });
 
 const ttAIP = document.getElementById('ttAIP');
   tippy('#aipTipBtn', {
