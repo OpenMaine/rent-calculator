@@ -211,3 +211,17 @@ const ttNewRent = document.getElementById('ttNewRent');
     allowHTML: true,
     interactive: true,
   });
+
+  const ttADU = document.getElementById('ttADU');
+  tippy('#aduTipBtn', {
+    content: ttADU.innerHTML,
+    allowHTML: true,
+    interactive: true,
+  });
+
+  const LLttADU = document.getElementById('LLttADU');
+  tippy('#LLaduTipBtn', {
+    content: LLttADU.innerHTML,
+    allowHTML: true,
+    interactive: true,
+  });
