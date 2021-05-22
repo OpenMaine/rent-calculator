@@ -20,7 +20,6 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light-border.css"/>
   <script src="https://kit.fontawesome.com/2fde56496b.js" crossorigin="anonymous"></script>
 
   <meta name="theme-color" content="#fafafa">
@@ -52,24 +51,25 @@
           <!-- tabs cycle each form step  -->
           <div class="tab">
             <div id="selectUser">
-              <p><label for="dropdown">I am a:</label>
+              <p>
+                <label for="dropdown">I am a:</label>
                 <select id="userSelection" name="dropdown" oninput="this.className = ''">
-                 <option value="tenant">Tenant</option>
-                 <option value="landlord">Landlord</option>
-               </select></p>
+                  <option value="tenant">Tenant</option>
+                  <option value="landlord">Landlord</option>
+                </select>
+              </p>
             </div>
             
             <div class="form-buttons">
               <button type="button" id="nextBtn" onclick="navTab(1), coverage()">Get Started</button>
             </div>
-
           </div>
 
           <div class="tab">
             <span id="displayUser"></span>
             <div id="tenantElig">
               <div>
-                <h3>Do any of these apply to you?</h3>
+                <h3 class="blue-text">Do any of these apply to you?</h3>
                 <ul>
                   <li>  Your building has more than four units</li>
                   <li>  (<strong>If no to above</strong>) Your landlord lives in the building</li>
@@ -77,13 +77,12 @@
                   <li>  Your unit is owned or operated by a municipal housing authority (such as Portland Housing Authority)</li>
                   <li>  Your unit is funded or controlled by a government agency, such as Section 8 housing (Note: this excludes Section 8 vouchers.  If you are using a Section 8 voucher, this item does not apply to you)</li>
                   <li>  You live in an accessory dwelling
-                    <button class="tool-tip" id="aduTipBtn"><i class="fas fa-question-circle fa-lg"></i></button></h5>
+                    <button class="tool-tip" id="aduTipBtn"><i class="fas fa-question-circle fa-md"></i></button></h5>
                     <!--tool tip content  -->
                     <div id="ttADU" style="display: none;">
                       <p>Accessory dwelling units are smaller, independent living units on the same land as a single-family home.  Common examples are an apartment above a garage, or an "in-law" unit.  See a full definition at the <a href="https://planning.org/knowledgebase/accessorydwellings/" target="_blank">American Planning Association</a></p>
                     </div>
                   </li>
-
                   <li>  You live in a church, hospital convent, religious facility, or extended care facility</li><!--hospital convent?-->
                 </ul>     
               </div>
@@ -91,63 +90,132 @@
             <div id="landlordElig">
               <div>
                 <span id="displayUser"></span>
-                <h3>Do any of these apply to you?</h3>
+                <h3 class="blue-text">Do any of these apply to you?</h3>
                 <ul>
                   <li>  Your rental property has <strong>more than four</strong> units</li>
                   <li>  Your rental property has <strong>four units or fewer</strong>, AND one of the units is your primary residence</li>
                   <li>  Your rental property is an accessory dwelling
-                    <button class="tool-tip" id="LLaduTipBtn"><i class="fas fa-question-circle fa-lg"></i></button></h5>
+                    <button class="tool-tip" id="LLaduTipBtn"><i class="fas fa-question-circle fa-md"></i></button></h5>
                     <!--tool tip content  -->
                       <div id="LLttADU" style="display: none;">
                         <p>Accessory dwelling units are smaller, independent living units on the same land as a single-family home.  Common examples are an apartment above a garage, or an "in-law" unit.  See a full definition at the <a href="https://planning.org/knowledgebase/accessorydwellings/" target="_blank">American Planning Association</a></p>
                     </div>
                   </li>
-
                 </ul>   
               </div>
             </div>
             <div class="form-buttons">
               <button type="button" class="start-over" onclick="navTab(-1), startOver()">Start Over</button>
-              <button type="button" id="yesButton" onclick="notElig()">Yes</button>
-              <button type="button" id="noButton" onclick="showCalculator()">No</button>
+              <button type="button" id="yesButton" onclick="notElig()">Yes, One Or More Applies</button>
+              <button type="button" id="noButton" onclick="showCalculator()">None of These Apply To Me</button>
             </div>
-
           </div>
 
           <div class= "tab">
-
             <div id="notElig">
               <div class="expl-elig">
                 <p>Based on your response, the rent control ordinance doesn't appear to apply to your apartment/unit (more help text)</p>
                 <p>See the <a href="https://www.portlandmaine.gov/DocumentCenter/View/29758/Rent-Control-FAQs" target="_BLANK">FAQ</a>, or Section 6-231 of the <a href="https://www.portlandmaine.gov/DocumentCenter/View/1070/Chapter-6-Buildings-and-Building-Regulations---Revised-1132020" target="_BLANK">Ordinance</a> for term definitions and exemptions in more detail.</p>
               </div>
-              
-              <div class="form-buttons">
-                <button type="button" class="start-over" onclick="navTab(1), startOver()">Start Over</button>
-              </div>
             </div>
 
             <div id="viewCalc">
-
-              <div class="calculator-section">
-                <h2>Calculator:</h2>
-                                                   
                 <div class = "calculator">
-                  <h5>As of January, 2021, the current Allowable Increase Percentage (AIP) is 0.5% 
-                    <button class="tool-tip" id="aipTipBtn"><i class="fas fa-question-circle fa-lg"></i></button></h5>
-                        <!--tool tip content  -->
-                      <div id="ttAIP" style="display: none;">
-                        <p>AIP is based on the change in the Consumer Price Index for Greater Boston Metro Area, as published by the <a href="https://www.bls.gov/regions/new-england/news-release/consumerpriceindex_boston.htm" target="_BLANK">United States Bureau of Labor Statistics</a>. The City of Portland's Housing Safety Office will publish an updated AIP each year on September 1, beginning September 1, 2021.</p>
-                      </div>
+                  <h3 class="blue-text">Current Monthly Rent:<button class="tool-tip" id="ttBaseRent"><i class="fas fa-question-circle fa-lg"></i></button>
+                  </h3>                    
+                  <div class="content-wrapper">
+                    <div>
+                      <label for="currency-field">$</label>
+                      <input type="number" name="currency-field" class="currency-input" id="baseRentInput" placeholder="0,000">
+                      <button id="calculateButton">Enter</button>
+                    </div>
+                  </div>
+                  <!-- <span id="noAmtError">Please enter an amount to calculate</span> -->
+                  
+                  <section id="outputDiv">
+                    <p>
+                      <span id="tenP1">The basic increase allowed in a 12 month period is your current rent multiplied by the Allowable Increase Percentage (AIP).</span><span id="landP1">The basic increase allowed in a 12 month period is the current monthly rent multiplied by the Allowable Increase Percentage (AIP).</span> <h5>As of January, 2021, the current AIP is 0.5% 
+                        <button class="tool-tip" id="aipTipBtn"><i class="fas fa-question-circle fa-md"></i></button></h5>
+                            <!--tool tip content  -->
+                          <div id="ttAIP" style="display: none;">
+                            <p>AIP is based on the change in the Consumer Price Index for Greater Boston Metro Area, as published by the <a href="https://www.bls.gov/regions/new-england/news-release/consumerpriceindex_boston.htm" target="_BLANK">United States Bureau of Labor Statistics</a>. The City of Portland's Housing Safety Office will publish an updated AIP each year on September 1, beginning September 1, 2021.</p>
+                          </div>
+                    </p>
+                    <p>
+                      Based on the <span id="rentAmt">(rent amount)</span> rent you entered above, the increase amount calculated from the AIP is <span id="increaseOutput"></span>. <br> Added to the current rent, the new amount with AIP increase would be <span id="newTotal"></span>.
+                    </p>
 
-                      <h3>Your Monthly Rent:<button class="tool-tip" id="ttBaseRent"><i class="fas fa-question-circle fa-lg"></i></button></h3>
-                    
-                      <div>
-                        <label for="currency-field">$</label>
-                        <input type="number" name="currency-field" class="currency-input" id="baseRentInput" placeholder="0,000">
-                      </div>
+                    <div>
                       
-                        <div class="adl-amts-container">
+                      <div id="tenAddAmts">
+                        <h5 class="blue-text">Other Amounts May Affect Your Increase Total</h5>
+                        <p>Additional increase amounts may be allowed for factors such as:
+                          <ul>
+                            <li>Tax-Rate Adjustment</li>
+                            <li>New Tenancy</li>
+                            <li>Banked Rent</li>
+                            <li>Board Approved Improvements</li>
+                          </ul>
+                          These additional factors may or may not apply to your situation. In the event of an increase, your landlord is required to notify you of the specific reasons for your rent increase. More information and a definition of terms can be found in the City of Portland Rent Control <a href="https://www.portlandmaine.gov/DocumentCenter/View/29758/Rent-Control-FAQs" target="_BLANK">FAQ</a> and the <a href="https://www.portlandmaine.gov/DocumentCenter/View/1070/Chapter-6-Buildings-and-Building-Regulations---Revised-1132020" target="_BLANK">Ordinance</a>
+                        </p>
+                    </div>
+                    <div id="landAddAmts">
+                      <h5 class="blue-text">Add Additional Qualified Amounts:</h5>
+
+                      <p>Additional increase amounts may be allowed for factors such as:
+                        <ul>
+                          <li>Tax-Rate Adjustment</li>
+                          <li>New Tenancy</li>
+                          <li>Banked Rent</li>
+                          <li>Board Approved Property Improvements</li>
+                        </ul>
+                      </p>
+                      <div class="content-wrapper">
+                        <section class="flex-column">
+                          <div>
+                            <label for="currency-field">Tax-Rate Adjustment:</label>
+                            <input type="number" name="currency-field" class="currency-input" id="taxRateInput" placeholder="$0,000" onkeyup="addToTotal()">
+                          </div>
+                          <div>
+                            <label for="currency-field">Banked Rent:</label>
+                            <input type="number" name="currency-field" class="currency-input" id="bankedRentInput" placeholder="$0,000" onkeyup="addToTotal()">
+                          </div>
+                          <div>
+                            <label for="currency-field">Improvements:</label>
+                            <input type="number" name="currency-field" class="currency-input" id="boardAprInput" placeholder="$0,000" onkeyup="addToTotal()">
+                          </div>
+                          <div class="row">
+                            <h4>Adjusted Total:</h4>
+                            <span id="landAddAmtsTotal"></span>
+                          </div>
+                        </section>
+                      </div>
+                        <p>These additional factors may or may not apply to your situation. As a landlord you are required to notify tenants (in writing) of the specific reasons for any rent increase. More information and a definition of terms can be found in the City of Portland Rent Control <a href="https://www.portlandmaine.gov/DocumentCenter/View/29758/Rent-Control-FAQs" target="_BLANK">FAQ</a> and the <a href="https://www.portlandmaine.gov/DocumentCenter/View/1070/Chapter-6-Buildings-and-Building-Regulations---Revised-1132020" target="_BLANK">Ordinance</a>
+                      </p>
+                    </div>
+
+                      <p>A unit's rent may only be increased once in a 12 month period. Combining all factors, the total rent increase in 12 months cannot be more than 10% of the current rent.  Based on the inputed rent above, 10% would be <span id="tenPercent"></span>. <br> <strong>At maximum possible increase, the new rent amount should not be more than <span id="maxIncAmt"></span></strong><button class="tool-tip" id="maxIncBtn"><i class="fas fa-question-circle fa-md"></i></button>
+                      </p>
+
+                      <!--tool tip content  -->
+                      <div id="ttMaxIncrease" style="display: none;">
+                      <p>Any allowed amount above the max increase may be "banked" and applied to the following year. See the <a href="https://www.portlandmaine.gov/DocumentCenter/View/29758/Rent-Control-FAQs" target="_BLANK">FAQ</a> and <a href="https://www.portlandmaine.gov/DocumentCenter/View/1070/Chapter-6-Buildings-and-Building-Regulations---Revised-1132020" target="_BLANK">Ordinance</a> for more info on Banked Rent.</p>
+                      </div>
+                    </div>
+                    <div class="help-text notice">
+                      <p>Landlords are required to give at least 75 days advance notice of an increase in rent by sending a signed document to the tenant.  The letter must include the date tenancy began, date of rent increase, and justifications for increase. (See section 6.234-d of the <a href="https://www.portlandmaine.gov/DocumentCenter/View/1070/Chapter-6-Buildings-and-Building-Regulations---Revised-1132020" target="_BLANK">Ordinance</a> or the City of Portland's <a href="https://www.portlandmaine.gov/DocumentCenter/View/29758/Rent-Control-FAQs" target="_BLANK">FAQ)</a>
+                      </p>
+                    </div>
+                  </section>
+                </div>
+            </div>
+                
+                    <!--tool tip content  -->
+                    <div id="ttNewRent" style="display: none;">
+                    <p>"New Rent" is your current rent plus the increase amount calculated above.</p>
+                    <p>This total may not reflect all of the increases allowed. Factors such as Tax Rate Adjustment, new tenancy, Banked Rent, and Board approved improvements to the unit may impact the total increase allowed. See the City's <a href="https://www.portlandmaine.gov/DocumentCenter/View/29758/Rent-Control-FAQs" target="_BLANK">FAQ</a> or section 6-234 of the <a href="https://www.portlandmaine.gov/DocumentCenter/View/1070/Chapter-6-Buildings-and-Building-Regulations---Revised-1132020" target="_BLANK">Ordinance</a> for more details.</p>
+                    </div>
+                        <!-- <div class="adl-amts-container">
                           <input type="checkbox" name="additional-amt" id="addAllowedAmt" onclick="reset()">
                           <label for="addAllowedAmt">Do you have an additional allowed increase to add?</label>
                           <div class="reveal-if-active">
@@ -156,50 +224,13 @@
                               <input type="number" name="currency-field" class="currency-input" id="addAmtInput" placeholder="0,000">
                             </div>
                           </div>
-                        </div>
+                        </div> -->
                     
-                  <button id="calculateButton">Calculate Increase</button>
-                  
-                  <div class="output">
-                    <div>
-                      <h4>Increase Amount<button class="tool-tip" id="ttIncrAmt"><i class="fas fa-question-circle fa-lg"></i></button> <span id="increaseOutput"></span></h4>
-                    </div>
-                    <div>
-                      <h4>New Rent<button class="tool-tip" id="newRentBtn"><i class="fas fa-question-circle fa-lg"></i></button> <span id="newTotal"></span></h4>
-                    </div>
-                  </div>
-
-                </div>
-                
-                    <!--tool tip content  -->
-                    <div id="ttNewRent" style="display: none;">
-                    <p>"New Rent" is your current rent plus the increase amount calculated above.</p>
-                    <p>This total may not reflect all of the increases allowed. Factors such as Tax Rate Adjustment, new tenancy, Banked Rent, and Board approved improvements to the unit may impact the total increase allowed. See the City's <a href="https://www.portlandmaine.gov/DocumentCenter/View/29758/Rent-Control-FAQs" target="_BLANK">FAQ</a> or section 6-234 of the <a href="https://www.portlandmaine.gov/DocumentCenter/View/1070/Chapter-6-Buildings-and-Building-Regulations---Revised-1132020" target="_BLANK">Ordinance</a> for more details.</p>
-                    </div>
-
-                    <div class="help-text notice">
-                      <p>Landlords are required to give at least 75 days advance notice of an increase in rent by sending a signed document to the tenant.  The letter must include the date tenancy began, date of rent increase, and justifications for increase. (See section 6.234-d of the <a href="https://www.portlandmaine.gov/DocumentCenter/View/1070/Chapter-6-Buildings-and-Building-Regulations---Revised-1132020" target="_BLANK">Ordinance</a> or the City of Portland's <a href="https://www.portlandmaine.gov/DocumentCenter/View/29758/Rent-Control-FAQs" target="_BLANK">FAQ)</a></p>
-                      
-                      <div id="maxIncrease">
-                        <p>A unit's rent may only be increased once in a 12 month period, and no increase may exceed 10%.  Based on the inputed Rent above:</p>
-                        <div>
-                          <p><strong>New Rent cannot be more than <span id="maxIncAmt"></span></strong><button class="tool-tip" id="maxIncBtn"><i class="fas fa-question-circle fa-lg"></i></button></p>
-                        </div>
-
-                        <!--tool tip content  -->
-                        <div id="ttMaxIncrease" style="display: none;">
-                        <p>Any allowed amount above the max increase may be "banked" and applied to the following year. See the <a href="https://www.portlandmaine.gov/DocumentCenter/View/29758/Rent-Control-FAQs" target="_BLANK">FAQ</a> and <a href="https://www.portlandmaine.gov/DocumentCenter/View/1070/Chapter-6-Buildings-and-Building-Regulations---Revised-1132020" target="_BLANK">Ordinance</a> for more info on Banked Rent.</p>
-                        </div>
-                      </div>
-                    </div>
       
       
                     <div>
                       <button type="button" class="start-over" onclick="navTab(1), startOver()">Start Over</button>
                     </div>
-                
-              </div>
-            </div>
 
           </div>
         </section>
@@ -207,10 +238,8 @@
         
         <div class="help-text">
           <p>***Legal Disclaimer Placeholder***</p>
-          <p>Some proper language should go in here about how we ain’t lawyers. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
           <p>Maybe this section also displays some text guiding users to additional help/resources.</p>
         </div>
-     
     </div>
   </main>
   
