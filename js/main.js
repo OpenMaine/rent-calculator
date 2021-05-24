@@ -167,20 +167,19 @@ function showCalculator() {
 
 
 /* -----------tool tips-------------- */
+const ttADU = document.getElementById('ttADU');
+  tippy('#aduTipBtn', {
+    content: ttADU.innerHTML,
+    allowHTML: true,
+    interactive: true,
+  });
 
-// const ttADwellT = document.getElementById('ttADwell-t');
-//   tippy('#aDwellTipBtn-t', {
-//     content: ttADwellT.innerHTML,
-//     allowHTML: true,
-//     interactive: true,
-//   });
-  
-// const ttADwellL = document.getElementById('ttADwell-l');
-//   tippy('#aDwellTipBtn-l', {
-//     content: ttADwellL.innerHTML,
-//     allowHTML: true,
-//     interactive: true,
-//   });
+  const LLttADU = document.getElementById('LLttADU');
+  tippy('#LLaduTipBtn', {
+    content: LLttADU.innerHTML,
+    allowHTML: true,
+    interactive: true,
+  }); 
 
 const ttAIP = document.getElementById('ttAIP');
   tippy('#aipTipBtn', {
@@ -197,13 +196,6 @@ tippy('#ttIncrAmt', {
   content: 'This is your monthly rent amount multiplied by the current AIP.',
 
 });
-
-const ttNewRent = document.getElementById('ttNewRent');
-  tippy('#newRentBtn', {
-    content: ttNewRent.innerHTML,
-    allowHTML: true,
-    interactive: true,
-  });
 
   const ttMaxIncrease = document.getElementById('ttMaxIncrease');
   tippy('#maxIncBtn', {
