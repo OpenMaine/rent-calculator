@@ -499,6 +499,14 @@ textarea {
   margin: 0 5px;
 }
 
+.fa-exclamation-circle {
+  color: #df8291;
+  vertical-align:center;
+  margin: 0 10px;
+}
+
+
+
 
 
 /* ==========================================================================
@@ -610,14 +618,6 @@ textarea {
     width: fit-content;
     font-size: 1rem;
     font-weight: 600;
-    /* color:#000;
-    background-color: #C5D4EB;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    outline: none; */
     padding: 6px 20px;
     margin: 15px 10px;
   }  
