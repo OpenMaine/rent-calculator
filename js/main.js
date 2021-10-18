@@ -1,6 +1,6 @@
 /*------------Calculator-----------------------*/
-//Allowable Increase Percentage (AIP), 0.5%, updated March 2021 using January 2021 figure from USBoLS.
-const AIP = 0.005
+//Allowable Increase Percentage (AIP), 4.0%, updated October 2021 using September 2021 figure from USBoLS.
+const AIP = 0.04
 
 const rentInput = document.querySelector('#baseRentInput');
   rentInput.addEventListener('keyup', enterKey);
