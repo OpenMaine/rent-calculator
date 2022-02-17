@@ -1,4 +1,5 @@
 # Rent Stabilization Calculator
+
 A cost calculator to help landlords comply with Portland's new rent stabilization ordinance. 
 Still in development, but a link to the most recently deployed version can be found [here on GH Pages](https://openmaine.github.io/rent-calculator/).
 
