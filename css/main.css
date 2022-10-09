@@ -693,7 +693,7 @@ textarea {
 
   .formWizard {
   min-height: 300px;
-}
+  }
   .calculator-section {
     padding-top: 0px;
   }
@@ -819,5 +819,6 @@ textarea {
   h3 {
     page-break-after: avoid;
   }
+}
 }
 
